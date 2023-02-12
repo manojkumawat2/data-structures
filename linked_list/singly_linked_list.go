@@ -12,6 +12,7 @@ type LinkedList struct {
 	head *Node
 }
 
+// Insert a new element at tail
 func (l *LinkedList) InsertAtTail(d int) {
 	newNode := &Node{data: d, next: nil}
 
@@ -28,6 +29,7 @@ func (l *LinkedList) InsertAtTail(d int) {
 	}
 }
 
+// Insert a new element at head
 func (l *LinkedList) InsertAtHead(d int) {
 	newNode := &Node{data: d, next: nil}
 
@@ -39,6 +41,7 @@ func (l *LinkedList) InsertAtHead(d int) {
 	}
 }
 
+// Delete a matching value node
 func (l *LinkedList) Delete(d int) {
 	if l.head == nil {
 		return
@@ -63,6 +66,7 @@ func (l *LinkedList) Delete(d int) {
 	}
 }
 
+// Search an element in the list and return true or false
 func (l *LinkedList) Search(d int) bool {
 	curr := l.head
 
@@ -76,8 +80,18 @@ func (l *LinkedList) Search(d int) bool {
 	return false
 }
 
+// Get the head node of linked list
 func (l *LinkedList) GetHead() *Node {
 	return l.head
+}
+
+// Check if list is empty or not
+func (l *LinkedList) IsEmpty() bool {
+	if l.head == nil {
+		return true
+	}
+
+	return false
 }
 
 func (l *LinkedList) Show() {
@@ -92,6 +106,8 @@ func (l *LinkedList) Show() {
 
 func main() {
 	list := LinkedList{head: nil}
+
+	fmt.Println(list.IsEmpty())
 
 	list.InsertAtTail(1)
 	list.InsertAtTail(2)
