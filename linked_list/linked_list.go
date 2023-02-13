@@ -1,6 +1,6 @@
-package main
+package linked_list
 
-import "fmt"
+import "strconv"
 
 // Linked List Node
 type Node struct {
@@ -94,33 +94,17 @@ func (l *LinkedList) IsEmpty() bool {
 	return false
 }
 
-func (l *LinkedList) Show() {
+func (l *LinkedList) GetListData() string {
+	data := ""
 	temp := l.head
 
 	for temp != nil {
-		fmt.Print(temp.data, " ")
+		if len(data) > 0 {
+			data += ", "
+		}
+		data += strconv.Itoa(temp.data)
 		temp = temp.next
 	}
-	fmt.Println()
-}
 
-func main() {
-	list := LinkedList{head: nil}
-
-	fmt.Println(list.IsEmpty())
-
-	list.InsertAtTail(1)
-	list.InsertAtTail(2)
-	list.InsertAtTail(3)
-	list.InsertAtTail(4)
-
-	list.InsertAtHead(0)
-
-	list.Show()
-
-	list.Delete(1)
-
-	list.Show()
-
-	fmt.Println(list.Search(6))
+	return data
 }
