@@ -7,15 +7,15 @@ func (l *LinkedList) DetectLoop() bool {
 	}
 
 	slow_ptr := l.head
-	fast_ptr := l.head.next
+	fast_ptr := l.head
 
-	for fast_ptr != nil && fast_ptr.next != nil && slow_ptr != fast_ptr {
+	for fast_ptr != nil && fast_ptr.next != nil {
 		slow_ptr = slow_ptr.next
 		fast_ptr = fast_ptr.next.next
-	}
 
-	if slow_ptr == fast_ptr {
-		return true
+		if slow_ptr == fast_ptr {
+			return true
+		}
 	}
 
 	return false
