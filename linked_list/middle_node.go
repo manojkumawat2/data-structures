@@ -13,7 +13,7 @@ func (l *LinkedList) MiddleElement() int {
 	middleNode := l.head
 	fastNode := l.head.next.next
 
-	// Move middleNode by one noe
+	// Move middleNode by one node
 	// Move fastNode by two nodes
 	for fastNode != nil {
 		middleNode = middleNode.next
