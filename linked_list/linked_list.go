@@ -94,6 +94,7 @@ func (l *LinkedList) IsEmpty() bool {
 	return false
 }
 
+// Get the list items in a comma separated string
 func (l *LinkedList) GetListData() string {
 	data := ""
 	temp := l.head
@@ -107,4 +108,20 @@ func (l *LinkedList) GetListData() string {
 	}
 
 	return data
+}
+
+// Add an already created Node to the end of the linked list
+func (l *LinkedList) InsertNodeAtTail(node *Node) {
+	if l.head == nil {
+		l.head = node
+		return
+	}
+
+	temp := l.head
+
+	for temp.next != nil {
+		temp = temp.next
+	}
+
+	temp.next = node
 }
